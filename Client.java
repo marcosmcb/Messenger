@@ -102,4 +102,26 @@ public class Client extends JFrame{
 			chatWindow.append("\n something messed up while sending message!");
 		}
 	}
+
+	//change/update chatWindow
+	private void showMessage(final String m){
+		SwingUtilities.invokeLater(
+			new Runnable(){
+				public void run(){
+					chatWindow.append(m);
+				}
+			}
+		);
+	}
+
+	//gives user permission to type crap into the text box
+	private void ableToType(final boolean tof){
+		SwingUtilities.invokeLater(
+			new Runnable(){
+				public void run(){
+					userText.setEditable(tof);
+				}
+			}
+		);	
+	}
 }
