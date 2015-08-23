@@ -113,4 +113,15 @@ public class Server extends JFrame{
 			chatWindow.append("\n ERROR: PAL I CANT SEND THAT MESSAGE");
 		}
 	}
+
+	//updates chatWindow
+	private void showMessage(final String text){
+		SwingUtilities.invokeLater(
+			new Runnable(){
+				public void run(){
+					chatWindow.append(text);
+				}
+			}
+		);
+	}
 }
