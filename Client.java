@@ -58,4 +58,11 @@ public class Client extends JFrame{
 		showMessage("Connected to: " + connection.getInetAddress().getHostName() );
 	}
 
+	//set up streams to send and receive messages
+	private void setupStreams() throws IOException{
+		output = new ObjectOutputStream(connection.getOutputStream());
+		output.flush();
+		input = new ObjectInputStream(connection.getInputStream());
+		showMessage("\n Pal your streams are now good to go! \n");
+	}
 }
