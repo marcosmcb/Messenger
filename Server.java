@@ -59,7 +59,18 @@ public class Server extends JFrame{
 		showMessage("Waiting for someone to connect... \n");
 		connection = server.accept();
 		showMessage(" Now connected to " + connection.getInetAddress().getHostName() + " \n");
-		
+
 	}
+
+	//get stream to send and receive data
+	private void setupStreams() throws IOException {
+		output = new ObjectOutputStream(connection.getOutputStream());
+		output.flush();
+
+		input = new ObjectInputStream(connection.getInputStream());
+		showMessage("\n Streams are now setup! \n");
+
+	}
+
 
 }
