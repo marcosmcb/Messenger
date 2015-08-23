@@ -95,11 +95,22 @@ public class Server extends JFrame{
 		try{
 			output.close();
 			input.close();
-			
+
 			//closes the socket, aka main connection
 			connection.close();
 		}catch(IOException ioException){
 			ioException.printStackTrace();
+		}
+	}
+
+	//send a message to client
+	private void sendMessage(String message){
+		try{
+			output.writeObject("SERVER - " + message);
+			output.flush();
+			showMessage("\n SERVER - " + message);
+		}catch(IOException ioException){
+			chatWindow.append("\n ERROR: PAL I CANT SEND THAT MESSAGE");
 		}
 	}
 }
