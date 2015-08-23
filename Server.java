@@ -54,5 +54,12 @@ public class Server extends JFrame{
 		}
 	}
 
+	//wait for connection, then display connection information
+	private void waitForConnection() throws IOException{
+		showMessage("Waiting for someone to connect... \n");
+		connection = server.accept();
+		showMessage(" Now connected to " + connection.getInetAddress().getHostName() + " \n");
+		
+	}
 
 }
