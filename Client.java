@@ -15,6 +15,25 @@ public class Client extends JFrame{
 	private String serverIP;
 	private Socket connection;
 
-	
+	//constructor
+	public Client(String host){
+		super("Client mofo!");
+		serverIP = host;
+		userText = new JTextField();
+		userText.setEditable(false);
+		userText.addActionListener(
+			new ActionListener(){
+				public void actionPerformed(ActionEvent event){
+					sendData(event.getActionCommand());
+					userText.setText("");
+				}
+			}
+		);
+		add(userText, BorderLayout.NORTH);
+		chatWindow = new JTextArea();
+		add(new JScrollPane(chatWindow), BorderLayout.CENTER);
+		setSize(300,150);
+		setVisible(true);
+	}
 
 }
