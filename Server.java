@@ -15,7 +15,7 @@ public class Server extends JFrame{
 
 	//constructor
 	public Server(){
-		super("Buckys Instant Messenger");
+		super("Marcos' Instant Messenger");
 		userText = new JTextField();
 		userText.setEditable(false);
 		userText.addActionListener(
