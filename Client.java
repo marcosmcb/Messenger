@@ -79,4 +79,16 @@ public class Client extends JFrame{
 		}while(!message.equals("SERVER - END"));
 	}
 
+	//close the streams and sockets
+	private void closeCrap(){
+		showMessage("\n closing crap down... ");
+		ableToType(false);
+		try{
+			output.close();
+			input.close();
+			connection.close();
+		}catch(IOException ioException){
+			ioException.printStackTrace();
+		}
+	}
 }
