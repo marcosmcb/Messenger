@@ -72,5 +72,19 @@ public class Server extends JFrame{
 
 	}
 
-
+	//during the chat conversation
+	private void whileChatting() throws IOException{
+		String message = "You are now connected! ";
+		sendMessage(message);
+		ableToType(true);
+		do{
+			//have a conversation
+			try{
+				message  = (String) input.readObject();
+				showMessage("\n" + message);
+			}catch(ClassNotFoundException classNotFoundException){
+				showMessage("\n I don't know what that user sent! \n");
+			}
+		}while(!message.equals("CLIENT - END"));
+	}
 }
