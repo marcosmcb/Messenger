@@ -51,4 +51,11 @@ public class Client extends JFrame{
 		}
 	}
 
+	//connect to server
+	private void connectToServer() throws IOException{
+		showMessage("Attempting connection... \n");
+		connection = new Socket(InetAddress.getByName(serverIP), 6789);
+		showMessage("Connected to: " + connection.getInetAddress().getHostName() );
+	}
+
 }
